@@ -23,6 +23,7 @@ public class CaesarCipher {
         System.out.println( encrypt.getEncrypted());
         System.out.println(encrypt.getDecrypted());
 
+
     }
 }
 
