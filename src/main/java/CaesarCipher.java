@@ -13,13 +13,16 @@ public class CaesarCipher {
 
 
         App encrypt = new App();
-        App decrypt = new App();
 
-        String code = encrypt.encrypt(text, key);
-        System.out.println(code);
+        encrypt.setShift(key);
+        encrypt.setText(text);
 
-        String code2 = decrypt.decrypt(code, key);
-        System.out.println(code2);
+        encrypt.encrypt();
+        encrypt.decrypt();
+
+        System.out.println( encrypt.getEncrypted());
+        System.out.println(encrypt.getDecrypted());
+
     }
 }
 

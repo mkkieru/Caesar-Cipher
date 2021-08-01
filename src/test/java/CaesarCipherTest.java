@@ -9,20 +9,26 @@ public class CaesarCipherTest {
 
     public void runEncrypt_encryptHItoJK_JK(){
         App code = new App();
-        String text = "HI";
-        Integer shift = 2;
-        String result =  code.encrypt(text,shift);
-        assertEquals("JK",result);
+
+        code.setText("HI");
+        code.setShift(2);
+
+        code.encrypt();
+
+        assertEquals("JK",code.getEncrypted());
     }
 
     @Test
 
     public void runDecrypt_decryptJKtoHI_HI(){
         App code = new App();
-        String text = "JK";
-        Integer shift = 2;
-        String result =  code.decrypt(text,shift);
-        assertEquals("HI",result);
+
+        code.setText("HI");
+        code.setShift(2);
+
+        code.encrypt();
+
+        assertEquals("JK",code.getEncrypted());
     }
 
 

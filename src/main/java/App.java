@@ -1,7 +1,24 @@
-public class App {
-    public String encrypt(String text, Integer shift){
+import java.security.PrivateKey;
 
-        String encrypted = "";
+public class App {
+
+    private String encrypted = "";
+    private String decrypted = "";
+    private String text;
+    private Integer shift;
+    private String text1;
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setShift(Integer shift) {
+        this.shift = shift;
+    }
+
+
+
+    public void encrypt(){
 
         if (shift>26){
             shift = shift%26;
@@ -36,12 +53,11 @@ public class App {
                 encrypted += ch;
             }
         }
-        return encrypted;
     }
 
-    public String decrypt(String text, Integer shift){
+    public void decrypt(){
 
-        String decrypted = "";
+        text1 = encrypted;
 
         if (shift>26){
             shift = shift%26;
@@ -50,11 +66,11 @@ public class App {
             shift = (shift%26) + 26 ;
         }
 
-        Integer length = text.length();
+        Integer length = text1.length();
 
         for (int i = 0; i < length ; i++) {
 
-            char ch = text.charAt(i);
+            char ch = text1.charAt(i);
 
             if(Character.isLetter(ch)){
                 if (Character.isLowerCase(ch)){
@@ -76,7 +92,13 @@ public class App {
                 decrypted += ch;
             }
         }
-        return decrypted;
 
+    }
+    public String getEncrypted() {
+        return encrypted;
+    }
+
+    public String getDecrypted() {
+        return decrypted;
     }
 }
