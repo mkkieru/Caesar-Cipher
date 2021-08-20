@@ -3,7 +3,7 @@ By Mark kieru
 
 Description
 
-This is a Java App that allows users to encrypt a message using a specific key and also allows users to decrypt the same message using the same or a different key.
+This is a Java CaesarCipher that allows users to encrypt a message using a specific key and also allows users to decrypt the same message using the same or a different key.
 Clone or download and unzip the repository from github,[https://github.com/mkkieru/Caesar-Cipher.git]
 If you have git Use this command git clone https://github.com/mkkieru/Caesar-Cipher.git to clone the project.
 

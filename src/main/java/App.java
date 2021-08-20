@@ -1,104 +1,26 @@
-import java.security.PrivateKey;
+import java.util.Scanner;
 
 public class App {
+    public static void main (String args[]) {
 
-    private String encrypted = "";
-    private String decrypted = "";
-    private String text;
-    private Integer shift;
-    private String text1;
+        Scanner sc = new Scanner(System.in);
 
-    public void setText(String text) {
-        this.text = text;
-    }
+        System.out.println("Enter message to be encrypted : ");
+        String text = sc.nextLine();
 
-    public void setShift(Integer shift) {
-        this.shift = shift;
-    }
+        System.out.println("Enter key to encrypt with : ");
+        Integer key = sc.nextInt();
 
 
+        CaesarCipher encrypt = new CaesarCipher(text,key);
 
-    public void encrypt(){
+        encrypt.encrypt();
+        encrypt.decrypt();
 
-        if (shift>26){
-            shift = shift%26;
-        }
-        else if (shift<0){
-            shift = (shift%26) + 26 ;
-        }
+        System.out.println( encrypt.getEncrypted());
+        System.out.println( encrypt.getDecrypted());
 
-        Integer length = text.length();
 
-        for (int i = 0; i < length ; i++) {
-
-            char ch = text.charAt(i);
-
-            if(Character.isLetter(ch)){
-                if (Character.isUpperCase(ch)){
-                    char c = (char) (ch+shift);
-                    if (c>'Z'){
-                        encrypted += (char) (ch-(26-shift));
-                    } else  {
-                        encrypted +=c;
-                    }
-                }else if(Character.isLowerCase(ch)){
-                    char c = (char) (ch+shift);
-                    if (c>'z'){
-                        encrypted += (char) (ch-(26-shift));
-                    } else  {
-                        encrypted +=c;
-                    }
-                }
-            }else {
-                encrypted += ch;
-            }
-        }
-    }
-
-    public void decrypt(){
-
-        text1 = encrypted;
-
-        if (shift>26){
-            shift = shift%26;
-        }
-        else if (shift<0){
-            shift = (shift%26) + 26 ;
-        }
-
-        Integer length = text1.length();
-
-        for (int i = 0; i < length ; i++) {
-
-            char ch = text1.charAt(i);
-
-            if(Character.isLetter(ch)){
-                if (Character.isLowerCase(ch)){
-                    char c = (char) (ch-shift);
-                    if (c<'a'){
-                        decrypted += (char) (ch+(26-shift));
-                    } else  {
-                        decrypted +=c;
-                    }
-                }else if(Character.isUpperCase(ch)){
-                    char c = (char) (ch-shift);
-                    if (c<'A'){
-                        decrypted += (char) (ch+(26-shift));
-                    } else  {
-                        decrypted +=c;
-                    }
-                }
-            }else {
-                decrypted += ch;
-            }
-        }
-
-    }
-    public String getEncrypted() {
-        return encrypted;
-    }
-
-    public String getDecrypted() {
-        return decrypted;
     }
 }
+
