@@ -17,9 +17,9 @@ public class App {
         encrypt.encrypt();
         encrypt.decrypt();
 
-        System.out.println( encrypt.getEncrypted());
-        System.out.println( encrypt.getDecrypted());
-
+        System.out.println( "Encrypted : "+encrypt.getEncrypted());
+        System.out.println( "Decrypted : "+encrypt.getDecrypted());
+        //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
 
     }
 }
